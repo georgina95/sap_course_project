@@ -1,0 +1,17 @@
+[
+  '{{repeat(15, 20)}}',
+  {
+    _id: '{{objectId()}}',
+    owner: function (tags) {
+      return 'User' + tags.index();
+    },
+    text: '{{lorem(1, "paragraphs")}}',
+    date: '{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-ddThh:mm:ss Z")}}',
+    latitude: '{{floating(-90.000001, 90)}}',
+    longitude: '{{floating(-180.000001, 180)}}',
+    tags: [
+      '{{repeat(2, 7)}}',
+      '{{lorem(1, "words")}}'
+    ]
+  }
+]

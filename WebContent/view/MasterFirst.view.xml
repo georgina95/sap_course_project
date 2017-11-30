@@ -1,0 +1,50 @@
+<mvc:View 
+	xmlns="sap.m" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:semantic="sap.m.semantic" 
+	xmlns:table="sap.ui.table" 
+	xmlns:tnt="sap.tnt"
+ 	controllerName="css_test.controller.Master">
+	
+	<Page id="page" showHeader="false" title="Master">
+		<subHeader>
+            <Toolbar visible="true" enabled="true" width="100%" design="Solid">
+                <content>
+                	<Label text="Publisher" labelfor="ownerSearchField" />
+                </content>
+            </Toolbar>
+        </subHeader>
+        <content>
+            <List
+            	id="masterList"
+            	mode="SingleSelectMaster" width="100%" backgroundDesign="Solid"
+            	headerText="Header" footerText=""  
+            	showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" 
+            	itemPress="_onPressOwner" items="{model>/Products}">
+                <items>
+                    <ObjectListItem 
+                    	intro="{model>date}" 
+                 		title="{model>owner}" 
+                    	number="{model>city}" 
+                    	numberUnit="{model>country}" 
+                    	numberState="None" 
+                    	type="Active" showMarkers="false" >
+                        <attributes>
+                            <ObjectAttribute title="" text="{model>tags}"/>
+                        </attributes>
+                    </ObjectListItem>
+                </items>
+                <headerToolbar>
+                    <Toolbar visible="true" enabled="true" width="100%" design="Solid">
+                        <content>
+                        	<SearchField id="ownerSearchField" search="onSearchOwner" liveChange="onSearchOwner" showSearchButton="true" visible="true" width="100%"/>
+                        </content>
+                    </Toolbar>
+                </headerToolbar>
+            </List>
+        </content>
+        
+        
+	</Page>
+	
+</mvc:View>
