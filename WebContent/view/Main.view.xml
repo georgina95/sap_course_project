@@ -1,13 +1,10 @@
-<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" 
-	controllerName="css_test.controller.Main" displayBlock="true" height="100%">
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" controllerName="css_test.controller.Main" displayBlock="true" height="100%">
 	
 	<Page id="page" showHeader="false" title="OuterHeader">
-		<subHeader>
-			<Toolbar>
+		<Toolbar design="Solid">
 				<ToolbarSpacer/>
 				<Button icon="sap-icon://world" text="{i18n>homeTitle}" press="onNavHome"/>
 			</Toolbar>
-		</subHeader>
 		<SplitApp id="idAppControl" mode="StretchCompressMode"/>
 	</Page>
 </mvc:View>

@@ -7,27 +7,33 @@ sap.ui.define([
 	'sap/m/MessageToast'
 ], function(BaseController, Device, TreeTable, JSONModel, Filter, MessageToast) {
 	"use strict";
-	
+
 	return BaseController.extend("css_test.controller.Master", {
-		
+
 		onInit: function() {
-			this._setModel("./model/mock.json", "model");
-			
+
 			this.setMasterView(this.getView());
-			
+
 			var oSelectedItem = {
-					masterId: "master",
-					projectId: "detailHome"
-				};
+				masterId: "master",
+				projectId: "detailHome"
+			};
 			this.showDetail(oSelectedItem);
 		},
-   		
-		
+
 		onNavMaster: function(oEvent) {
 			this.getSplitAppObj().toMaster(this.createId("masterSecond"));
 		},
+
+		onNavDetail: function(sPageId){
+		var oSelectedItem = {
+					masterId: "master",
+					projectId: sPageId
+			};
+			this.showDetail(oSelectedItem);
+		},
 		
-		onSearchOwner : function (oEvt) {
+		onSearchOwner: function(oEvt) {
 
 			// add filter for search
 			var aFilters = [];
@@ -42,8 +48,8 @@ sap.ui.define([
 			var binding = list.getBinding("items");
 			binding.filter(aFilters, "Application");
 		},
-		
-		onSearchTags: function (oEvt) {
+
+		onSearchTags: function(oEvt) {
 
 			// add filter for search
 			var aFilters = [];
@@ -60,24 +66,33 @@ sap.ui.define([
 		},
 
 		_onPressOwner: function(oEvent) {
-			MessageToast.show("Pressed : " + oEvent.getSource().getSelectedItem().getTitle());
+			var oSelectedItem = oEvent.getSource().getSelectedItem();
+			var sPath = oSelectedItem.getBindingContextPath();
+			
+			MessageToast.show("Pressed : " + oSelectedItem.getTitle());
+			
+			var oModel = this.getView().getModel("model");
+			var oSelectedNode = oModel.getObject(sPath);
+			
+			var oTechnical = this.getView().getModel("technical");
+			oTechnical.setProperty("/selectedItem", oSelectedNode);
+			
+			this.onNavDetail("example");
 		},
-		
+
 		onSelectMenu: function(oEvent) {
 			var sId = oEvent.getParameter("item").getProperty("key");
-						
+
 			var oSelectedItem = {
-					masterId: "master",
-					projectId: sId
+				masterId: "master",
+				projectId: sId
 			};
 			this.showDetail(oSelectedItem);
 		},
-		
-		onAfterRendering : function() {
+
+		onAfterRendering: function() {
 			console.log("Done rendering");
 		}
-		
+
 	});
 });
-
-

@@ -1,4 +1,3 @@
-
 // Define a root UI component that exposes the main view
 jQuery.sap.declare("css_test.Component");
 
@@ -40,13 +39,13 @@ sap.ui.core.UIComponent.extend("css_test.Component", {
 			    	pattern: "",
 					name: "master",
 					target: ["master"],
-					targetAggregation: "masterPages",
+					targetAggregation: "masterPages"
 				},
 				{
 			    	pattern: "",
 					name: "masterSecond",
 					target: ["master"],
-					targetAggregation: "masterPages",
+					targetAggregation: "masterPages"
 				},
 				{
 					pattern: "home",

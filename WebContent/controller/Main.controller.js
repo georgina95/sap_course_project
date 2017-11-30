@@ -7,6 +7,8 @@ sap.ui.define([
     
    	return BaseController.extend("css_test.controller.Main", {
    		onInit: function(){
+   			this._setModel("./model/mock.json", "model");
+			this._setModel("./model/technical.json", "technical");
    		},
    		
    		onNavHome: function() {

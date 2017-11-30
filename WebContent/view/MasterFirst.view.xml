@@ -22,7 +22,7 @@
             	showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" 
             	itemPress="_onPressOwner" items="{model>/Products}">
                 <items>
-                    <ObjectListItem 
+                    <ObjectListItem
                     	intro="{model>date}" 
                  		title="{model>owner}" 
                     	number="{model>city}" 
