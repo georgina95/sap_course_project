@@ -4,12 +4,14 @@ sap.ui.define([
 	"sap/ui/table/TreeTable",
 	"sap/ui/model/json/JSONModel",
 	"sap/ui/model/Filter",
-	'sap/m/MessageToast'
-], function(BaseController, Device, TreeTable, JSONModel, Filter, MessageToast) {
+	"sap/m/MessageToast",
+	"css_test/model/Formatter"
+], function(BaseController, Device, TreeTable, JSONModel, Filter, MessageToast, Formatter) {
 	"use strict";
 
 	return BaseController.extend("css_test.controller.Master", {
-
+		formatter: Formatter,
+		
 		onInit: function() {
 
 			this.setMasterView(this.getView());

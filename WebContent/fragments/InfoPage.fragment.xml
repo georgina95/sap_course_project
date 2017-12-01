@@ -1,0 +1,11 @@
+<core:FragmentDefinition 
+	xmlns="sap.m" 
+	xmlns:f="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout"	
+	xmlns:core="sap.ui.core">
+<VBox>
+	<HBox>
+		
+	</HBox>
+</VBox>	
+</core:FragmentDefinition>

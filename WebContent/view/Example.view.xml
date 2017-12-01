@@ -1,5 +1,31 @@
-<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" controllerName="css_test.controller.Example">
-	<Page id="examplepage" title="ExampleViewTitle">
-		<Text text="This is an example page for the item {technical>/selectedItem/owner}" />
+<mvc:View xmlns="sap.m" xmlns:uxap="sap.uxap" xmlns:layout="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+	controllerName="css_test.controller.Example">
+	<Page id="examplepage" title="Details of the Selected Item">
+		<content>
+			<uxap:ObjectPageHeaderContent>
+				<uxap:content>
+					<layout:VerticalLayout>
+						<ObjectStatus title="{i18n>User}" text="{technical>/selectedItem/owner}"/>
+						<ObjectStatus title="{i18n>Date}" text="{technical>/selectedItem/date}"/>
+						<ObjectStatus title="{i18n>Latitude}" text="{technical>/selectedItem/latitude}"/>
+						<ObjectStatus title="{i18n>Longitude}" text="{technical>/selectedItem/longitude}"/>
+						<Text text="{technical>/selectedItem/text}"/>
+						<Tokenizer width="100%" editable="false" tokens="{technical>/selectedItem/tags}">
+							<Token key="{technical>tagId}" text="{technical>tagText}"/>
+						</Tokenizer>
+					</layout:VerticalLayout>
+				</uxap:content>
+			</uxap:ObjectPageHeaderContent>
+			<IconTabBar id="idIconTabBarMulti" expanded="{device>/isNoPhone}" expandable="false" class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter icon="sap-icon://hint" text="{i18n>menuInfo}">
+						<core:Fragment fragmentName="css_test.fragments.InfoPage" type="XML"/>
+					</IconTabFilter>
+					<IconTabFilter icon="sap-icon://map" text="{i18n>menuMap}">
+						<core:Fragment fragmentName="css_test.fragments.MapPage" type="XML"/>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</content>
 	</Page>
 </mvc:View>

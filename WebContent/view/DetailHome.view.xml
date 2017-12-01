@@ -1,38 +1,8 @@
-<mvc:View xmlns="sap.m" 
-		xmlns:mvc="sap.ui.core.mvc" 
-		xmlns:semantic="sap.m.semantic" 
-		xmlns:table="sap.ui.table" 
-		controllerName="css_test.controller.DetailHome">
-	
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:table="sap.ui.table"
+	controllerName="css_test.controller.DetailHome">
 	<Page id="homePage" showHeader="false" title="Home">
 		<content>
-			<IconTabBar
-				id="idIconTabBarMulti"
-				expanded="{device>/isNoPhone}"
-				class="sapUiResponsiveContentPadding">
-				<items>
-					<IconTabFilter
-						icon="sap-icon://hint">
-						<Text text="Info content goes here ..." />
-					</IconTabFilter>
-					<IconTabFilter
-						icon="sap-icon://attachment"
-						count="3">
-						<Text text="Attachments go here ..." />
-					</IconTabFilter>
-					<IconTabFilter
-						icon="sap-icon://notes"
-						count="12">
-						<Text text="Notes go here ..." />
-					</IconTabFilter>
-					<IconTabFilter
-						icon="sap-icon://group">
-						<Text text="People content goes here ..." />
-					</IconTabFilter>
-				</items>
-			</IconTabBar>
+			<Title text="{i18n>welcome}"/>
 		</content>
-		
 	</Page>
-	
 </mvc:View>

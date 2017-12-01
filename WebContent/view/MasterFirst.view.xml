@@ -30,7 +30,11 @@
                     	numberState="None" 
                     	type="Active" showMarkers="false" >
                         <attributes>
-                            <ObjectAttribute title="" text="{model>tags}"/>
+                            <ObjectAttribute 
+                            	title="" 
+                            	text="{
+									path: 'model>tags',
+									formatter: '.formatter.tagList'}"/>
                         </attributes>
                     </ObjectListItem>
                 </items>
